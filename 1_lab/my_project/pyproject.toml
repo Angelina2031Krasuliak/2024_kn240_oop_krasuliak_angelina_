@@ -1,7 +1,7 @@
 [project]
-name = "poetry-env"
+name = "my-project"
 version = "0.1.0"
-description = "New"
+description = ""
 authors = [
     {name = "Angelina2031Krasuliak",email = "angelina.krasuliak@gmail.com"}
 ]
@@ -12,10 +12,8 @@ dependencies = [
 ]
 
 [tool.poetry]
+packages = [{include = "my_project", from = "src"}]
 
-[tool.poetry.dependencies]
-python = "^3.13"
-requests = ">=2.32.3,<3.0.0"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^7.1.2"
