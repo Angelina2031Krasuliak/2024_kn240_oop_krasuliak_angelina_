@@ -2,11 +2,11 @@ class BankAccount:
     __hidden_global = 10
 
     def __init__(self, owner: str, balance: float):
-        self.owner = owner        
-        self.__balance = balance 
-
-    def __incapsulated_method(self):
-        print(f"класова прихована змінна:{self.__hidden_global}")
+        self.owner = owner        # Публічний атрибут
+        self.__balance = balance  # Приватний атрибут (інкапсульований)
+    
+    def __incapsulation_method(self):
+        print(f"Класова прихована змінна: {self.__hidden_global}")
 
     def deposit(self, amount: float):
         """Додає кошти на рахунок"""
@@ -28,6 +28,3 @@ class BankAccount:
     def get_balance(self):
         """Надає доступ до балансу (через метод, а не напряму)"""
         return self.__balance
-
-
- 
