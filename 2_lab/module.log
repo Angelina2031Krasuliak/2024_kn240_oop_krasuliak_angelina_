@@ -1,1 +1,3 @@
 my_module.py:WARNING::::=== Логи з модуля! ===
+__main__:my_module.py:WARNING::::=== Логи з модуля! ===
+__main__:my_module.py:ERROR::::=== Помилка з модуля ===
