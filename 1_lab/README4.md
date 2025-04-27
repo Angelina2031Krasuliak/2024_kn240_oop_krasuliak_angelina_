@@ -386,8 +386,134 @@ requests 2.32.3 Python HTTP for Humans.
 poetry remove <package_name>
 #  Це видалить пакет з файлу `pyproject.toml` та оновить віртуальне середовище.
 ```
+```bash
+$ poetry remove requests
+Updating dependencies
+Resolving dependencies... (2.1s)
+
+Package operations: 4 installs, 0 updates, 5 removals
+
+  - Removing certifi (2025.4.26)
+  - Removing charset-normalizer (3.4.1)
+  - Removing idna (3.10)
+  - Removing requests (2.32.3)
+  - Removing urllib3 (2.4.0)
+  - Installing mccabe (0.7.0)
+  - Installing pycodestyle (2.12.1)
+  - Installing pyflakes (3.2.0)
+  - Installing flake8 (7.1.2)
+
+Writing lock file
+```
 7. Щоб оновити всі залежності до їхніх останніх сумісних версій, використовуйте команду:
 ```py
 poetry update
 # Це оновить пакети відповідно до обмежень, зазначених у файлі `pyproject.toml`, та оновить файл `poetry.lock` з новими версіями.
 ```
+```bash
+$ poetry update
+Updating dependencies
+Resolving dependencies... (1.5s)
+
+Package operations: 0 installs, 3 updates, 0 removals
+
+  - Updating pycodestyle (2.12.1 -> 2.13.0)
+  - Updating pyflakes (3.2.0 -> 3.3.2)
+  - Updating flake8 (7.1.2 -> 7.2.0)
+
+Writing lock file
+```
+8. Для того щоб активувати середовище проекту потрібно виконати наступні команди:
+```py
+poetry shell
+# Для виконання команд без активації середовища використовуйте:
+poetry run <command>
+# для пеервірки сеердовища виконайте
+poetry env list
+poetry env info
+```
+9. Якщо потрібно створити декілька груп з різними пакетами, виконується команда:
+```bash
+poetry add --dev pytest flake8 black isort mypy
+```
+- Для рприкладу дані бібліокети виконують роль Лінтерів та статичних перевірок коду які потрібно лише на стадії розробки проекту, тому вони знаходяться у секції --dev.
+
+10. За допомогою АІ створила програму для цього проекту та запустила її у віртуальному середовищі створеному за допомогою poetry.
+
+#### Для початку нам потрібно встановити такі бібліотеки:
+
+- **Flask** -	Створює і запускає вебсайт.
+- **Matplotlib** - Малює графіки математичних функцій.
+- **NumPy** - Генерує масиви чисел та обчислює функції.
+
+```
+poetry add flask matplotlib numpy
+```
+```
+$ poetry add flask matplotlib numpy
+The following packages are already present in the pyproject.toml and will be skipped:
+
+  - flask
+
+If you want to update it to the latest compatible version, you can use `poetry update package`.
+If you prefer to upgrade it to the latest available version, you can use `poetry add package@latest`.
+
+Using version ^3.10.1 for matplotlib
+Using version ^2.2.5 for numpy
+
+Updating dependencies
+Resolving dependencies... (5.5s)
+
+Package operations: 11 installs, 0 updates, 0 removals
+
+  - Installing numpy (2.2.5)
+  - Installing six (1.17.0)
+  - Installing contourpy (1.3.2)
+  - Installing cycler (0.12.1)
+  - Installing packaging (25.0)
+  - Installing pillow (11.2.1)
+  - Installing fonttools (4.57.0)
+  - Installing kiwisolver (1.4.8)
+  - Installing pyparsing (3.2.3)
+  - Installing python-dateutil (2.9.0.post0)
+  - Installing matplotlib (3.10.1)
+
+Writing lock file
+```
+- Після встановлення всіх бібліотек що нам потрібні, ми запускаємо файл [main.py](poetry_env/main.py), та получаємо [посилання](http://127.0.0.1:5000) на браузер.
+```
+poetry run python (name files)
+```
+```bash
+$ poetry run python main.py
+ * Serving Flask app 'main'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 704-201-388
+ ```
+```py
+http://127.0.0.1:5000/	Привітання, текстова сторінка
+http://127.0.0.1:5000/plot	Картинка з графіком функцій
+```
+- Результат того що ми бачимо в браузері.
+![](poetry.png)
+
+- дальше ми натискаємо на кнопку **Show Plot** та отримуємо графік.
+![](poetry11.png)
+- результат нашої програми.
+![](poetry22.png)
+
+------------------------------------------------------------------
+**Висновок:**
+- ❓ **Що зроблено в роботі:** Навчилися встановлювати сторонні бібліотеки та працювати з віртуальними середовищами
+- ❓ **Чи досягнуто мети роботи:** Мета роботи досягнута
+- ❓ **Які нові знання отримано:** Дізналася про роботу в віртульних середовищах
+- ❓ **Чи вдалось відповісти на всі питання задані в ході роботи:** Так, вдалося
+- ❓ **Чи вдалося виконати всі завдання:** Вдалося виконати всі завдання
+- ❓ **Чи виникли складності у виконанні завдання:** Проблема виникла з pipenv, по якій з причин активація за допомогою команд не проходила, довелося добровільно-примусово це все робити. Також запуск через bash не виконунвся ніяким способом, тому довелося брати   PowerShell.
+- ❓ **Чи подобається такий формат здачі роботи (Feedback):** Так, такий формат здачі робіт мені до вподоби
+- ❓ **Побажання для покращення (Suggestions):** Немає
